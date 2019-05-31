@@ -32,7 +32,7 @@ public interface Ip {
     Ip nextPublickNetworkIp();
 
     /**
-     * 下一个非ip
+     * 下一个非公网ip
      * @return
      */
     Ip nextNotPublickNetworkIp();
@@ -44,7 +44,7 @@ public interface Ip {
     boolean isPublicNetwork();
 
     /**
-     * 获取字符串表示
+     * 获取字符串表示（点分十进制）
      * @return
      */
     String getString();

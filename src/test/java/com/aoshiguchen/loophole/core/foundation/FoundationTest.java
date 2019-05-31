@@ -33,4 +33,21 @@ public class FoundationTest {
         Foundation.ding().notice("测试通知");
     }
 
+    @Test
+    public void test5(){
+        Foundation.ipv4().ergodicPublicNetworkIp("9.255.255.250","11.0.0.10",(ipv4,progress) -> {
+            System.out.println(ipv4 + " " + progress + "%");
+        });
+    }
+
+    @Test
+    public void test6(){
+        Foundation.ipv4().ergodicPublicNetworkIp("9.255.255.250","11.0.0.10",
+                ipv4 -> !"11.0.0.9".equals(ipv4.getString()),
+                (ipv4,progress) -> System.out.println(progress),
+                ipv4 -> {
+            System.out.println(ipv4);
+        });
+    }
+
 }

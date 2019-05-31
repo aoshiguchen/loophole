@@ -6,7 +6,9 @@ import com.aoshiguchen.loophole.core.foundation.spi.provider.Ipv4Provider;
 import com.aoshiguchen.loophole.core.foundation.spi.provider.NetworkProvider;
 import com.aoshiguchen.loophole.core.foundation.spi.provider.Provider;
 
+import java.util.function.BiConsumer;
 import java.util.function.Consumer;
+import java.util.function.Function;
 
 public class NullProvider implements NetworkProvider,Ipv4Provider,DingProvider {
 
@@ -42,6 +44,16 @@ public class NullProvider implements NetworkProvider,Ipv4Provider,DingProvider {
 
   @Override
   public void notice(String msg) {
+
+  }
+
+  @Override
+  public void ergodicPublicNetworkIp(String from, String to, BiConsumer<Ipv4, Integer> consumer) {
+
+  }
+
+  @Override
+  public void ergodicPublicNetworkIp(String from, String to, Function<Ipv4, Boolean> filter, BiConsumer<Ipv4, Integer> progress, Consumer<Ipv4> consumer) {
 
   }
 
