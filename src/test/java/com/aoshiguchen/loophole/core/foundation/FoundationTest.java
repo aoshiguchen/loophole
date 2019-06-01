@@ -52,7 +52,7 @@ public class FoundationTest {
 
     @Test
     public void test7(){
-        System.out.println(Foundation.redis().check("110.10.147.36"));
+        System.out.println(Foundation.redis().check("110.42.0.39"));
     }
 
 }

@@ -75,7 +75,8 @@ public class Test1 {
     }
 
     public static void main(String[] args) {
-        System.out.println(check("r-uf6997427dc281a4.redis.rds.aliyuncs.com",6379,200));
+//        System.out.println(check("r-uf6997427dc281a4.redis.rds.aliyuncs.com",6379,200));
 //        System.out.println(Ipv4.from("118.89.63.66").ping(3000));
     }
+
 }

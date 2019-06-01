@@ -21,6 +21,8 @@ public class DefaultRedisProvider implements RedisProvider {
         try{
             Jedis jedis = new Jedis(host,port);
             jedis.connect();
+            jedis.set("test","hello");
+            jedis.del("test");
             return jedis.isConnected();
         }catch (Exception e){
             return false;
