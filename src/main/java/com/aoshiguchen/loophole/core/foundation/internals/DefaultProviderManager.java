@@ -3,6 +3,7 @@ package com.aoshiguchen.loophole.core.foundation.internals;
 import com.aoshiguchen.loophole.core.foundation.internals.provider.DefaultDingProvider;
 import com.aoshiguchen.loophole.core.foundation.internals.provider.DefaultIpv4Provider;
 import com.aoshiguchen.loophole.core.foundation.internals.provider.DefaultNetworkProvider;
+import com.aoshiguchen.loophole.core.foundation.internals.provider.DefaultRedisProvider;
 import com.aoshiguchen.loophole.core.foundation.spi.ProviderManager;
 import com.aoshiguchen.loophole.core.foundation.spi.provider.Provider;
 
@@ -24,6 +25,10 @@ public class DefaultProviderManager implements ProviderManager {
     DefaultDingProvider defaultDingProvider = new DefaultDingProvider();
     defaultDingProvider.initialize();
     register(defaultDingProvider);
+
+    DefaultRedisProvider defaultRedisProvider = new DefaultRedisProvider();
+    defaultRedisProvider.initialize();
+    register(defaultRedisProvider);
   }
 
   public synchronized void register(Provider provider) {

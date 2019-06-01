@@ -1,16 +1,13 @@
 package com.aoshiguchen.loophole.core.foundation.internals.provider;
 
 import com.aoshiguchen.loophole.core.dto.Ipv4;
-import com.aoshiguchen.loophole.core.foundation.spi.provider.DingProvider;
-import com.aoshiguchen.loophole.core.foundation.spi.provider.Ipv4Provider;
-import com.aoshiguchen.loophole.core.foundation.spi.provider.NetworkProvider;
-import com.aoshiguchen.loophole.core.foundation.spi.provider.Provider;
+import com.aoshiguchen.loophole.core.foundation.spi.provider.*;
 
 import java.util.function.BiConsumer;
 import java.util.function.Consumer;
 import java.util.function.Function;
 
-public class NullProvider implements NetworkProvider,Ipv4Provider,DingProvider {
+public class NullProvider implements NetworkProvider,Ipv4Provider,DingProvider,RedisProvider {
 
   @Override
   public String getHostAddress() {
@@ -55,6 +52,16 @@ public class NullProvider implements NetworkProvider,Ipv4Provider,DingProvider {
   @Override
   public void ergodicPublicNetworkIp(String from, String to, Function<Ipv4, Boolean> filter, BiConsumer<Ipv4, Integer> progress, Consumer<Ipv4> consumer) {
 
+  }
+
+  @Override
+  public boolean check(String host) {
+    return false;
+  }
+
+  @Override
+  public boolean check(String host, int port) {
+    return false;
   }
 
   @Override

@@ -6,6 +6,7 @@ import com.aoshiguchen.loophole.core.foundation.spi.ProviderManager;
 import com.aoshiguchen.loophole.core.foundation.spi.provider.DingProvider;
 import com.aoshiguchen.loophole.core.foundation.spi.provider.Ipv4Provider;
 import com.aoshiguchen.loophole.core.foundation.spi.provider.NetworkProvider;
+import com.aoshiguchen.loophole.core.foundation.spi.provider.RedisProvider;
 
 /**
  * TODO
@@ -59,6 +60,14 @@ public class Foundation {
     public static DingProvider ding(){
         try {
             return getManager().provider(DingProvider.class);
+        } catch (Exception ex) {
+            return NullProviderManager.provider;
+        }
+    }
+
+    public static RedisProvider redis(){
+        try {
+            return getManager().provider(RedisProvider.class);
         } catch (Exception ex) {
             return NullProviderManager.provider;
         }

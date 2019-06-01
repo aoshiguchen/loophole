@@ -2,6 +2,7 @@ package com.aoshiguchen.loophole.core;
 
 import com.aoshiguchen.loophole.core.foundation.Foundation;
 import org.junit.jupiter.api.Test;
+import redis.clients.jedis.Jedis;
 
 import java.io.BufferedWriter;
 import java.io.FileWriter;
