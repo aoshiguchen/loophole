@@ -23,6 +23,7 @@ public class RedisLoopholeScanService implements BaseLoopholeScanService {
     @Autowired
     private DingService dingService;
 
+    @Override
     public void scan(){
         Ipv4Segment ipv4Segment = Ipv4Segment.from(SystemConfig.SCAN_FROM_IP, SystemConfig.SCAN_TO_IP);
         log.info("redis漏洞扫描开始:");
