@@ -37,7 +37,7 @@ public class DateUtil {
 	public static final String DATE_FORMAT_YEAR_MONTH_DAY_HOUR_MINUTE_SECOND = "yyyy/MM/dd HH:mm:ss";
 	public static final String DATE_FORMAT_YEAR_MONTH_DAY_HOUR_MINUTE_SECOND2 = "yyyy-MM-dd HH:mm:ss";
 	public static final String DATE_FORMAT_YEAR_MONTH_DAY_HOUR_MINUTE_SECOND3 = "yyyy年MM月dd日 HH:mm";
-	public static final String DATE_FORMAT_YEAR_MONTH_DAY_HOUR_MINUTE_SECOND4 = "yyyy-MM-dd:HH:mm:ss";
+	public static final String DATE_FORMAT_YEAR_MONTH_DAY_HOUR_MINUTE_SECOND4 = "yyyy-MM-dd HH:mm:ss";
 	public static final String DATE_FORMAT_MONTH_DAY = "MM月dd日";
 	public static final String DATE_FORMAT_HOUR_MINUTE = "HH:mm";
 	public static final String DATE_FORMAT_YEAR_MONTH_DAY = "yyyyMMdd";

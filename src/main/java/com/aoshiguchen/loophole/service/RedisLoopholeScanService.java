@@ -34,7 +34,7 @@ public class RedisLoopholeScanService implements BaseLoopholeScanService {
             (ipv4,progress) -> log.info(progress + "%")    // 输出扫描进度
             ,ipv4 -> {
                 log.info("扫描到redis漏洞ip:" + ipv4);
-                dingService.notice(ipv4.getString());
+                dingService.notice("Redis漏洞扫描结果", ipv4.getString());
             });
 
         log.info("redis漏洞扫描结束");

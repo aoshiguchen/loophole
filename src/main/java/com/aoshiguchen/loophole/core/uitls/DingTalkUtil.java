@@ -1,6 +1,8 @@
 package com.aoshiguchen.loophole.core.uitls;
 
 import com.alibaba.fastjson.JSONObject;
+import com.aoshiguchen.loophole.base.SystemConfig;
+import com.aoshiguchen.loophole.core.foundation.Foundation;
 import org.apache.http.client.config.RequestConfig;
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpPost;
@@ -8,12 +10,45 @@ import org.apache.http.entity.StringEntity;
 import org.apache.http.util.EntityUtils;
 import org.junit.platform.commons.util.StringUtils;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+
 /**
  * 钉钉消息工具类
  * Author: liuhuan
  * Date:  17/8/8 下午7:59
  */
 public class DingTalkUtil {
+
+    private static final SimpleDateFormat sdf = new SimpleDateFormat(DateUtil.DATE_FORMAT_YEAR_MONTH_DAY_HOUR_MINUTE_SECOND4);
+
+    /**
+     * 发送消息（适用于简短的通知消息）
+     * @param accessToken
+     * @param title
+     * @param content
+     */
+    public static void sendSimpleMsg(String accessToken, String title, String content){
+        StringBuffer sb = new StringBuffer();
+        sb.append("发送IP:").append(Foundation.net().getHostAddress()).append("\n");
+        sb.append("【").append(title).append(" ").append(sdf.format(Calendar.getInstance().getTime())).append("】\n");
+        sb.append(content);
+
+        sendDingTalkMsg(accessToken, sb.toString());
+    }
+
+    /**
+     * 发送消息（适用于简短的通知消息）
+     * @param accessToken
+     * @param content
+     */
+    public static void sendSimpleMsg(String accessToken, String content){
+        StringBuffer sb = new StringBuffer();
+        sb.append("发送IP:").append(Foundation.net().getHostAddress()).append("\n");
+        sb.append(content);
+
+        sendDingTalkMsg(accessToken, sb.toString());
+    }
 
     /**
      * 发送钉钉消息

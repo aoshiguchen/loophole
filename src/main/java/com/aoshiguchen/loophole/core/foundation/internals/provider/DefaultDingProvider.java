@@ -18,7 +18,12 @@ public class DefaultDingProvider implements DingProvider {
 
     @Override
     public void notice(String msg) {
-        DingTalkUtil.sendDingTalkMsg(noticeAccessToken,msg);
+        DingTalkUtil.sendSimpleMsg(noticeAccessToken,msg);
+    }
+
+    @Override
+    public void notice(String title, String msg) {
+        DingTalkUtil.sendSimpleMsg(noticeAccessToken, title, msg);
     }
 
     @Override

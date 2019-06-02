@@ -55,4 +55,9 @@ public class FoundationTest {
         System.out.println(Foundation.redis().check("110.42.0.39"));
     }
 
+    @Test
+    public void test8(){
+        Foundation.ding().notice("标题","内容");
+    }
+
 }

@@ -9,4 +9,6 @@ public interface DingProvider extends Provider{
 
     void notice(String msg);
 
+    void notice(String title, String msg);
+
 }

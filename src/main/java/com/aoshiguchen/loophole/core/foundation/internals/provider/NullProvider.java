@@ -71,6 +71,11 @@ public class NullProvider implements NetworkProvider,Ipv4Provider,DingProvider,R
   }
 
   @Override
+  public void notice(String title, String msg) {
+
+  }
+
+  @Override
   public String toString() {
     return "(NullProvider)";
   }
