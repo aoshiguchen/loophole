@@ -1,6 +1,7 @@
 package com.aoshiguchen.loophole.core.foundation.internals.provider;
 
 import com.aoshiguchen.loophole.core.dto.Ipv4;
+import com.aoshiguchen.loophole.core.dto.Ipv4Segment;
 import com.aoshiguchen.loophole.core.foundation.spi.provider.*;
 
 import java.util.function.BiConsumer;
@@ -62,6 +63,11 @@ public class NullProvider implements NetworkProvider,Ipv4Provider,DingProvider,R
   @Override
   public boolean check(String host, int port) {
     return false;
+  }
+
+  @Override
+  public void ergodicPublicNetworkIp(Ipv4Segment ipv4Segment, Function<Ipv4, Boolean> filter, BiConsumer<Ipv4, Integer> progress, Consumer<Ipv4> consumer) {
+
   }
 
   @Override

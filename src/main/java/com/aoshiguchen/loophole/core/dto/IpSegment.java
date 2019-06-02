@@ -40,6 +40,18 @@ public interface IpSegment {
     long getCount();
 
     /**
+     * 获取开始ip
+     * @return
+     */
+    Ip getBeginIp();
+
+    /**
+     * 获取终止ip
+     * @return
+     */
+    Ip getEndIp();
+
+    /**
      * 当前ip是否为起始ip
      * @return
      */

@@ -1,6 +1,8 @@
 package com.aoshiguchen.loophole.core.foundation.spi.provider;
 
+import com.aoshiguchen.loophole.core.dto.IpSegment;
 import com.aoshiguchen.loophole.core.dto.Ipv4;
+import com.aoshiguchen.loophole.core.dto.Ipv4Segment;
 
 import java.util.function.BiConsumer;
 import java.util.function.BiFunction;
@@ -39,4 +41,13 @@ public interface Ipv4Provider extends Provider{
      * @param consumer
      */
     void ergodicPublicNetworkIp(String from, String to, Function<Ipv4, Boolean> filter, BiConsumer<Ipv4,Integer> progress,Consumer<Ipv4> consumer);
+
+    /**
+     * 遍历公网ip
+     * @param ipv4Segment
+     * @param filter
+     * @param progress
+     * @param consumer
+     */
+    void ergodicPublicNetworkIp(Ipv4Segment ipv4Segment, Function<Ipv4, Boolean> filter, BiConsumer<Ipv4,Integer> progress, Consumer<Ipv4> consumer);
 }

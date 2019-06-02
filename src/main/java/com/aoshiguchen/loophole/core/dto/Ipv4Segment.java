@@ -49,6 +49,10 @@ public class Ipv4Segment implements IpSegment {
         return new Ipv4Segment(beginIp, endIp);
     }
 
+    public static Ipv4Segment from(String beginIp, String endIp){
+        return new Ipv4Segment(Ipv4.from(beginIp), Ipv4.from(endIp));
+    }
+
     @Override
     public boolean hasNext() {
         if(this._ip.getNumber() < this.endIp.getNumber()){
@@ -131,6 +135,16 @@ public class Ipv4Segment implements IpSegment {
         }
 
         return result;
+    }
+
+    @Override
+    public Ip getBeginIp() {
+        return this.beginIp;
+    }
+
+    @Override
+    public Ip getEndIp() {
+        return this.endIp;
     }
 
     @Override

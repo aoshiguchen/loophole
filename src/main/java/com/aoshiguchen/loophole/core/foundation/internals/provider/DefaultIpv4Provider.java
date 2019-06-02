@@ -63,6 +63,15 @@ public class DefaultIpv4Provider implements Ipv4Provider {
 
     @Override
     public void ergodicPublicNetworkIp(String from, String to, Function<Ipv4, Boolean> filter, BiConsumer<Ipv4,Integer> progress, Consumer<Ipv4> consumer) {
+        ergodicPublicNetworkIp(Ipv4Segment.from(from,to),filter,progress,consumer);
+    }
+
+    @Override
+    public void ergodicPublicNetworkIp(Ipv4Segment ipv4Segment, Function<Ipv4, Boolean> filter, BiConsumer<Ipv4, Integer> progress, Consumer<Ipv4> consumer) {
+        if(null == ipv4Segment){
+            throw new RuntimeException("ipv4Segment不能为空!");
+        }
+
         if(null == filter){
             filter = ip -> true;
         }
@@ -71,7 +80,6 @@ public class DefaultIpv4Provider implements Ipv4Provider {
             progress = (ipv4, integer) -> {};
         }
 
-        Ipv4Segment ipv4Segment = Ipv4Segment.from(Ipv4.from(from),Ipv4.from(to));
         List<Ipv4Segment> list = ipv4Segment.getPublicNetworkSegments();
         long total = list.stream().collect(Collectors.summingLong(Ipv4Segment::getCount));
         long count = 0;
@@ -100,5 +108,6 @@ public class DefaultIpv4Provider implements Ipv4Provider {
                 }
             }
         }
+
     }
 }
