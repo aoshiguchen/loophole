@@ -1,0 +1,8 @@
+sys:
+  config:
+    # 发布扫描结果通知的钉钉机器人token
+    DING_NOTICE_TOKEN: fa81c6fb600c37f71b4332c188c8c266a0abea54f015bb6c7a8d3792c9be6c3e
+    # 扫描信息配置
+    scan:
+      FROM_IP: 110.42.0.39
+      TO_IP: 110.42.255.255
