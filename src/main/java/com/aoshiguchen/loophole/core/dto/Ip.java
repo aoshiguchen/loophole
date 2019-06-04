@@ -14,6 +14,12 @@ public interface Ip {
     boolean ping(int timeout);
 
     /**
+     * 检测ip指定端口是否能ping通
+     * @return
+     */
+    boolean ping(int port, int timeout);
+
+    /**
      * 是否有下一个ip
      * @return
      */

@@ -3,6 +3,9 @@ package com.aoshiguchen.loophole.core.dto;
 import com.aoshiguchen.loophole.core.uitls.Ipv4Util;
 
 import java.net.InetAddress;
+import java.net.InetSocketAddress;
+import java.net.Socket;
+import java.net.SocketAddress;
 
 /**
  * Ipv4
@@ -62,6 +65,22 @@ public class Ipv4 implements Ip{
 
         try{
             result = InetAddress.getByName(getString()).isReachable(timeout);
+        }catch (Exception e){
+
+        }
+
+        return result;
+    }
+
+    @Override
+    public boolean ping(int port, int timeout) {
+        boolean result = false;
+
+        try{
+            Socket socket = new Socket();
+            SocketAddress socketAddress = new InetSocketAddress(getString(), port);
+            socket.connect(socketAddress,timeout);
+            return true;
         }catch (Exception e){
 
         }

@@ -76,6 +76,26 @@ public class NullProvider implements NetworkProvider,Ipv4Provider,DingProvider,R
   }
 
   @Override
+  public boolean check(Ipv4 ip) {
+    return false;
+  }
+
+  @Override
+  public boolean check(Ipv4 ip, int timeout) {
+    return false;
+  }
+
+  @Override
+  public boolean check(Ipv4 ip, int port, int timeout) {
+    return false;
+  }
+
+  @Override
+  public boolean check(String host, int port, int timeout) {
+    return false;
+  }
+
+  @Override
   public String toString() {
     return "(NullProvider)";
   }
