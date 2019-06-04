@@ -31,7 +31,8 @@ public class RedisLoopholeScanService implements BaseLoopholeScanService {
         log.info("ip总数：{} 【实际扫描会排除掉其中的非公网ip】", ipv4Segment.getCount());
 
         Foundation.ipv4().ergodicPublicNetworkIp(ipv4Segment, // 设置扫描ip段
-            ipv4 ->  Foundation.redis().check(ipv4.getString()), // 过滤暴露6379外网端口的ip
+                // 使用带timeout的方法检测，速度提升10倍
+            ipv4 ->  Foundation.redis().check(ipv4,200), // 过滤暴露6379外网端口的ip
             (ipv4,progress) -> log.info(progress + "%")    // 输出扫描进度
             ,ipv4 -> {
                 log.info("扫描到redis漏洞ip:" + ipv4);
